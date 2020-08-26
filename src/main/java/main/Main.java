@@ -15,6 +15,6 @@ public class Main {
 
     @Bean
     ApplicationRunner applicationRunner(DynamoDbClient client) {
-        return args -> client.listTables();
+        return args -> System.out.println(client.listTables());
     }
 }
