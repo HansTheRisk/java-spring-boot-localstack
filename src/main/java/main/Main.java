@@ -1,10 +1,10 @@
 package main;
 
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 
 @SpringBootApplication
 public class Main {
@@ -14,7 +14,7 @@ public class Main {
     }
 
     @Bean
-    ApplicationRunner applicationRunner(DynamoDbClient client) {
+    ApplicationRunner applicationRunner(AmazonDynamoDB client) {
         return args -> System.out.println(client.listTables());
     }
 }
