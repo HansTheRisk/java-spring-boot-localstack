@@ -6,6 +6,7 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.github.dynamobee.Dynamobee;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -36,6 +37,15 @@ public class AppConfig {
     @Bean
     public AWSCredentials amazonAWSCredentials() {
         return new BasicAWSCredentials(amazonProperties.getAccessKey(), amazonProperties.getSecretKey());
+    }
+
+    @Bean
+    public Dynamobee dynamobee(){
+        Dynamobee runner = new Dynamobee(amazonDynamoDB()); //DynamoDB Client: com.amazonaws.services.dynamodbv2.AmazonDynamoDB
+        runner.setChangeLogsScanPackage(
+                "main.changelogs"); // the package to be scanned for changesets
+
+        return runner;
     }
 
 }
