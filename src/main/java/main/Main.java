@@ -1,6 +1,10 @@
 package main;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+import com.amazonaws.services.dynamodbv2.document.ScanFilter;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +18,10 @@ public class Main {
     }
 
     @Bean
-    ApplicationRunner applicationRunner(AmazonDynamoDB client) {
-        return args -> System.out.println(client.listTables());
+    ApplicationRunner applicationRunner(DynamoDB client) {
+        // TODO:::::::::::::::::
+//        DynamoDBMapper
+        client.getTable("user").scan().iterator().forEachRemaining(r -> System.out.println(r.toString()));
+        return args -> client.listTables().iterator().forEachRemaining(t -> System.out.println(t.getTableName()));
     }
 }
