@@ -6,6 +6,7 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.github.dynamobee.Dynamobee;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
@@ -41,13 +42,18 @@ public class AppConfig {
     }
 
     @Bean
+    public DynamoDBMapper dynamoDBMapper() {
+        return new DynamoDBMapper(amazonDynamoDB());
+    }
+
+    @Bean
     public DynamoDB dynamoDB() {
         return new DynamoDB(amazonDynamoDB());
     }
 
     @Bean
     public Dynamobee dynamobee(){
-        Dynamobee runner = new Dynamobee(amazonDynamoDB()); //DynamoDB Client: com.amazonaws.services.dynamodbv2.AmazonDynamoDB
+        Dynamobee runner = new Dynamobee(amazonDynamoDB());
         runner.setChangeLogsScanPackage(
                 "main.changelogs"); // the package to be scanned for changesets
 

@@ -1,25 +1,14 @@
 package main.repository.user;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.amazonaws.services.dynamodbv2.model.GetItemRequest;
-import com.amazonaws.services.dynamodbv2.model.GetItemResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Collections;
+import java.util.List;
 
-@Repository
-public class UserRepository {
+@EnableScan
+public interface UserRepository extends CrudRepository<User, String> {
 
-    @Autowired
-    private AmazonDynamoDB amazonDynamoDB;
+    List<User> findAll();
+    User findByUsername(String username);
 
-    public User getUser(String username) {
-        GetItemRequest request = new GetItemRequest().withTableName("user")
-                                                     .withConsistentRead(true)
-                                                     .withKey(Collections.singletonMap("username", new AttributeValue(username)));
-        GetItemResult result = amazonDynamoDB.getItem(request);
-        return new UserMapper().mapToDomain(result);
-    }
 }
