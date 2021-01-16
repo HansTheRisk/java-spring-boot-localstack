@@ -18,7 +18,7 @@ import java.util.Collections;
  *
  * For a CRUD interface implementation see {@link UserRepository}
  */
-@Deprecated()
+@Deprecated
 @Repository
 public class UserRepository_Old {
 

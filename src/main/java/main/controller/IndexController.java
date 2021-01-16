@@ -1,14 +1,17 @@
 package main.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+import javax.enterprise.inject.Model;
+
+@Controller
 public class IndexController {
 
-    @GetMapping("/")
-    public String index() {
-        return "<h1>Main</h1>";
+    @RequestMapping("/")
+    public String index(Model model) {
+        return "index";
     }
 
     @GetMapping("/user")
