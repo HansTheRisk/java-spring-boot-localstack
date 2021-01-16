@@ -1,0 +1,14 @@
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/Main.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/dynamo/mapper/user/authority/AuthoritySetConverter.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/repository/user/User.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/SecurityConfig.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/repository/user/UserMapper.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/service/user/UserService.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/repository/user/UserRepository_Old.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/AmazonProperties.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/AppConfig.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/dynamo/mapper/bool/BooleanConverter.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/controller/IndexController.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/dynamo/annotation/bool/DynamoDBBooleanAttribute.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/changelogs/DatabaseChangeLog.java
+/home/hkloss/repos/java-spring-boot-localstack/src/main/java/main/repository/user/UserRepository.java

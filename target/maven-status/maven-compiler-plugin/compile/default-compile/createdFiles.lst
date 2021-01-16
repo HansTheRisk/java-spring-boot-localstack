@@ -1,0 +1,16 @@
+main/repository/user/User.class
+main/changelogs/DatabaseChangeLog.class
+main/SecurityConfig.class
+main/dynamo/mapper/user/authority/AuthoritySetConverter.class
+main/controller/IndexController.class
+main/AppConfig.class
+main/dynamo/mapper/bool/BooleanConverter.class
+main/Main.class
+main/repository/user/UserRepository_Old.class
+main/service/user/UserService.class
+main/AmazonProperties.class
+main/repository/user/UserMapper.class
+main/repository/user/User$Authority.class
+main/repository/user/UserRepository.class
+main/dynamo/annotation/bool/DynamoDBBooleanAttribute.class
+main/dynamo/mapper/user/authority/AuthoritySetConverter$1.class
